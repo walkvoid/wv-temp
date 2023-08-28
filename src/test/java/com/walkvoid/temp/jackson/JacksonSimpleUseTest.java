@@ -46,6 +46,7 @@ public class JacksonSimpleUseTest {
     public static class User {
         private String name;
         private Integer age;
+        @JsonProperty
         private LocalDate birthday;
         private Car car;
 
