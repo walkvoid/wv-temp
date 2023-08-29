@@ -37,10 +37,13 @@ public class JacksonSubTypeUseTest {
     @AllArgsConstructor
     @NoArgsConstructor
     @SuperBuilder
-    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,property = "name")
-    @JsonSubTypes({@JsonSubTypes.Type(value= Cat.class,name = "cat")})
+    @JsonTypeInfo(use = JsonTypeInfo.Id.CUSTOM,property = "color", visible = false)
+    //@ObjectIdResolver()
+    @JsonSubTypes({@JsonSubTypes.Type(value= Cat.class,name = "yellow")})
     public abstract static class Animal {
         private String name;
+        //C=猫, EL=大象
+        private String type;
     }
 
     @Setter
@@ -50,6 +53,16 @@ public class JacksonSubTypeUseTest {
     @SuperBuilder
     public static class Cat extends Animal{
         private String color;
+    }
+
+    @Setter
+    @Getter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @SuperBuilder
+    public static class Elephant extends Animal{
+
+        private Integer weight;
     }
 
     @Test
