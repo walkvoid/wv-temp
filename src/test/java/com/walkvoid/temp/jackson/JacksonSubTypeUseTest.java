@@ -1,19 +1,13 @@
 package com.walkvoid.temp.jackson;
 
-import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.walkvoid.temp.support.json.MyLocalDateTimeDeserializer;
-import com.walkvoid.temp.support.json.MyLocalDateTimeSerializer;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
+import com.walkvoid.temp.models.BaseEnum;
+import com.walkvoid.temp.models.UserStatusEnum;
+import com.walkvoid.temp.models.json.JsonSubTypeModel;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-
-import java.time.LocalDateTime;
 
 /**
  * @author walkvoid
@@ -31,49 +25,19 @@ public class JacksonSubTypeUseTest {
         objectMapper.registerModule(javaTimeModule);
     }
 
-
-    @Setter
-    @Getter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @SuperBuilder
-    @JsonTypeInfo(use = JsonTypeInfo.Id.CUSTOM,property = "color", visible = false)
-    //@ObjectIdResolver()
-    @JsonSubTypes({@JsonSubTypes.Type(value= Cat.class,name = "yellow")})
-    public abstract static class Animal {
-        private String name;
-        //C=猫, EL=大象
-        private String type;
-    }
-
-    @Setter
-    @Getter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @SuperBuilder
-    public static class Cat extends Animal{
-        private String color;
-    }
-
-    @Setter
-    @Getter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @SuperBuilder
-    public static class Elephant extends Animal{
-
-        private Integer weight;
-    }
-
     @Test
     public void subTypeTest() throws JsonProcessingException {
-        Animal animal = Cat.builder().name("cat").color("yellow").build();
+        JsonSubTypeModel.Animal animal = JsonSubTypeModel.Cat.builder().name("cat").color("yellow").build();
+//        JsonSubTypeModel.Animal animal = JsonSubTypeModel.Cat.builder().name("tom").type("C").build();
         log.info("{}", objectMapper.writeValueAsString(animal));
-        //{"name":"cat","color":"yellow"}
+        //{"name":"cat","type":"C","color":"yellow"}
 
-        String json = "{\"name\":\"cat\",\"color\":\"yellow\"}";
-        Animal animal1 = objectMapper.readValue(json, Animal.class);
-        // animal1 is
+//        String json = "{\"name\":\"cat\",\"type\":\"C\",\"color\":\"yellow\"}";
+//        JsonSubTypeModel.Animal animal1 = objectMapper.readValue(json, JsonSubTypeModel.Animal.class);
+//        log.info("{}", animal1.getClass().getName());
+
+
+
     }
 
 
