@@ -116,6 +116,12 @@
             <version>${sa-token.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.mavendemo1</groupId>
+            <artifactId>module1-user-api</artifactId>
+            <version>1.2-SNAPSHOT</version>
+        </dependency>
+
 
 
         <dependency>
