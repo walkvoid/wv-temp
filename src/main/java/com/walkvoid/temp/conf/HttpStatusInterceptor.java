@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author jiangjunqing
  * @version v1.0.0
  * @date 2023/9/14
- * @desc todo
+ * @desc
  */
 
 public class HttpStatusInterceptor implements HandlerInterceptor {

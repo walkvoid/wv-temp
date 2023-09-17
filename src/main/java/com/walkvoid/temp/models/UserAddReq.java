@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author qingshan1993
@@ -17,6 +19,10 @@ public class UserAddReq implements Serializable {
 
     private String name;
 
-    private UserStatusEnum status;
+    //private UserStatusEnum status;
+
+    //public List<UserStatusEnum> statusList;
+
+    public Map<String, UserStatusEnum> statusMap;
 
 }

@@ -117,10 +117,11 @@
         </dependency>
 
         <dependency>
-            <groupId>com.mavendemo1</groupId>
-            <artifactId>module1-user-api</artifactId>
-            <version>1.2-SNAPSHOT</version>
+            <groupId>com.wvframework</groupId>
+            <artifactId>wvframework-utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
 
 
 

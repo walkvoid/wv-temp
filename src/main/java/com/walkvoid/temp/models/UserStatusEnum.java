@@ -1,5 +1,6 @@
 package com.walkvoid.temp.models;
 
+import com.walkvoid.temp.anno.BaseEnum;
 import com.walkvoid.temp.anno.DatabaseField;
 
 /**
@@ -8,7 +9,8 @@ import com.walkvoid.temp.anno.DatabaseField;
  * @date 2023/8/30
  * @desc
  */
-public enum UserStatusEnum implements BaseEnum {
+@BaseEnum
+public enum UserStatusEnum {
     INIT("init", "初始化"),
     ACTIVE("active", "已激活"),
     LOCKED("locked", "被锁定"),

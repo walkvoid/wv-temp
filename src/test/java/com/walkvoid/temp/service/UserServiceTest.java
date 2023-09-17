@@ -2,6 +2,7 @@ package com.walkvoid.temp.service;
 
 import com.walkvoid.temp.TempApplication;
 import com.walkvoid.temp.service.proxybean.PhotoService;
+import com.wvframework.utils.SpringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,4 +28,13 @@ public class UserServiceTest {
     public void proxyTest() {
         log.info("::::::::::{}",photoService.getClass().getName());
     }
+
+    @Test
+    public void springUtilsTest() {
+
+        log.info("::::::::::currentIsSpringEnvironment:{}", SpringUtils.currentIsSpringEnvironment());
+        log.info("::::::::::PhotoService:{}", SpringUtils.getBean(PhotoService.class));
+    }
+
+
 }
