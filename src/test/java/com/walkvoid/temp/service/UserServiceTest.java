@@ -6,6 +6,7 @@ import com.wvframework.utils.SpringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -31,9 +32,10 @@ public class UserServiceTest {
 
     @Test
     public void springUtilsTest() {
-
         log.info("::::::::::currentIsSpringEnvironment:{}", SpringUtils.currentIsSpringEnvironment());
         log.info("::::::::::PhotoService:{}", SpringUtils.getBean(PhotoService.class));
+        log.info("::::::::::currentIsSpringWebEnvironment:{}", SpringUtils.currentIsSpringWebEnvironment());
+
     }
 
 
